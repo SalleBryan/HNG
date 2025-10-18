@@ -1,0 +1,141 @@
+<!--
+data-testid attributes:
+- test-profile-card
+- test-user-name
+- test-user-bio
+- test-user-time
+- test-user-avatar
+- test-user-social-links
+- test-user-social-X
+- test-user-social-github
+- test-user-social-linkedin
+- test-user-hobbies
+- test-user-dislikes
+- test-avatar-pic-label
+- test-avatar-pic-input
+- test-bio-toggle
+- test-instructions
+- test-section-social
+- test-section-hobbies
+- test-section-dislikes
+- test-social-heading
+- test-hobbies-heading
+- test-dislikes-heading
+- test-avatar-figure
+- test-avatar-figcaption
+- test-social-item-X
+- test-social-item-github
+- test-social-item-linkedin
+- test-hobby-item-1
+- test-hobby-item-2
+- test-hobby-item-3
+- test-dislike-item-1
+- test-dislike-item-2
+- test-dislike-item-3
+-->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bryan's Profile</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <main>
+    <p data-testid="test-instructions" class="instructions">
+      Use Tab to navigate, Enter/Space to activate controls.
+    </p>
+
+    <!-- Root profile card -->
+    <article class="profile-card" data-testid="test-profile-card" aria-labelledby="user-name">
+      <header class="card-header">
+        <h2 id="user-name" data-testid="test-user-name">Salle Bryan</h2>
+      </header>
+
+      <div class="card-grid">
+        <figure class="avatar" data-testid="test-avatar-figure">
+          <img
+            data-testid="test-user-avatar"
+            src="https://media.licdn.com/dms/image/v2/D4E03AQF9WOM58yL8UA/profile-displayphoto-scale_400_400/B4EZnT33z_HEAg-/0/1760196265335?e=1762387200&v=beta&t=Ssn2c7mPTgU3Rp0x7aiz1rvDerw4bj1SETsrq6zTCz4"
+            alt="Profile Pic"
+            width="240"
+            height="240"
+          />
+          <figcaption data-testid="test-avatar-figcaption">Update your avatar below</figcaption>
+        </figure>
+
+        <div class="card-content">
+          <p class="bio clamped" data-testid="test-user-bio">
+            Software Enthusiast and Front-End Stack Developer, dedicated to creating delighful, 
+            eye popping and efficient interfaces. Loves clean architecture and organised code.
+            When I'm not coding, I read novels, play video games, watch anime and play basketball.
+          </p>
+          <button type="button" class="bio-toggle" data-testid="test-bio-toggle" aria-expanded="false" aria-controls="bio-control-target">
+            Show more
+          </button>
+          <!-- Hidden association target for aria-controls; the bio paragraph is the visual target -->
+          <span id="bio-control-target" hidden></span>
+
+          <div class="time-row">
+            <strong>Current time (ms):</strong>
+            <span data-testid="test-user-time" class="time" aria-live="polite">0</span>
+          </div>
+
+          <div class="avatar-inputs">
+            <label for="avatar-file" data-testid="test-avatar-pic-label">upload an image</label>
+            <input
+              id="avatar-file"
+              type="file"
+              accept="image/*"
+              data-testid="test-avatar-pic-input"
+            />
+          </div>
+        </div>
+      </div>
+
+      <section aria-labelledby="social-heading" data-testid="test-section-social">
+        <h3 id="social-heading" data-testid="test-social-heading">Socials</h3>
+        <ul class="social-links" data-testid="test-user-social-links">
+          <li data-testid="test-social-item-X">
+            <a data-testid="test-user-social-X" href="https://x.com/bryanja72423970" target="_blank" rel="noopener noreferrer">
+              X
+            </a>
+          </li>
+          <li data-testid="test-social-item-github">
+            <a data-testid="test-user-social-github" href="https://github.com/sallebryan" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          </li>
+          <li data-testid="test-social-item-linkedin">
+            <a data-testid="test-user-social-linkedin" href="https://www.linkedin.com/in/salle-yimnai-bryan-56619b322" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="hobbies-heading" data-testid="test-section-hobbies">
+        <h3 id="hobbies-heading" data-testid="test-hobbies-heading">Hobbies</h3>
+        <ul class="bulleted" data-testid="test-user-hobbies">
+          <li data-testid="test-hobby-item-1">Gaming</li>
+          <li data-testid="test-hobby-item-2">Random Research</li>
+          <li data-testid="test-hobby-item-3">Read Books and Novels</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="dislikes-heading" data-testid="test-section-dislikes">
+        <h3 id="dislikes-heading" data-testid="test-dislikes-heading">Dislikes</h3>
+        <ul class="bulleted" data-testid="test-user-dislikes">
+          <li data-testid="test-dislike-item-1">Disorganised Code</li>
+          <li data-testid="test-dislike-item-2">Bad Grammar</li>
+          <li data-testid="test-dislike-item-3">Tardiness</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
