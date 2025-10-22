@@ -1,3 +1,4 @@
+/* Consolidated CSS custom properties and improved organization */
 :root {
   /* Typography */
   --font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans",
@@ -17,6 +18,8 @@
   --accent-light: #ff9472;
   --accent-contrast: #fff6e9;
   --deep-purple: #4b0082;
+  --error: #dc2626;
+  --success: #16a34a;
 
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -27,7 +30,7 @@
   --shadow-colored: 0 20px 25px -5px rgba(255, 106, 0, 0.1), 0 10px 10px -5px rgba(255, 106, 0, 0.04);
   --shadow-colored-lg: 0 25px 50px -12px rgba(255, 106, 0, 0.25);
 
-  /* Text sizes */
+  /* Typography scale */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -50,7 +53,7 @@
   --space-16: 4rem;
 }
 
-/* Simplified styles */
+/* Simplified base styles */
 *,
 *::before,
 *::after {
@@ -104,13 +107,74 @@ body::before {
   }
 }
 
-main {
-  padding: var(--space-6);
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
+/* Navigation styles */
+nav[data-testid="test-main-nav"] {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 106, 0, 0.1);
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  padding: var(--space-5) var(--space-8);
+  color: var(--fg);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--text-sm);
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  transition: transform 0.3s ease;
+  border-radius: 2px;
+}
+
+nav a:hover::after,
+nav a[aria-current="page"]::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+main {
+  padding: var(--space-6);
+  display: inline-flexbox;
+  place-items: center;
+  min-height: calc(100vh - 60px);
+}
+
+/* Simplified instructions with better mobile handling */
 .instructions {
   margin: 0 0 var(--space-6);
   font-size: var(--text-sm);
@@ -132,13 +196,10 @@ main {
   box-shadow: var(--shadow-xl);
 }
 
-@media (max-width: 1023px) {
-  .instructions {
-    display: none;
-  }
-}
-
-.profile-card {
+/* Streamlined profile card with better transitions */
+.profile-card,
+.contact-card,
+.about-card {
   width: 100%;
   max-width: 1000px;
   background: var(--card);
@@ -152,7 +213,9 @@ main {
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.profile-card::before {
+.profile-card::before,
+.contact-card::before,
+.about-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -162,17 +225,21 @@ main {
   background: linear-gradient(90deg, transparent, rgba(255, 106, 0, 0.3), transparent);
 }
 
-.profile-card:hover {
+.profile-card:hover,
+.contact-card:hover,
+.about-card:hover {
   transform: translateY(-12px) scale(1.02);
   box-shadow: var(--shadow-colored-lg);
   border-color: var(--accent-light);
 }
 
+/* Improved header with cleaner gradient text */
 .card-header {
   margin-bottom: var(--space-8);
   text-align: center;
 }
 
+.card-header h1,
 .profile-card h2 {
   font-size: var(--text-4xl);
   margin: 0;
@@ -187,6 +254,7 @@ main {
   padding-bottom: var(--space-4);
 }
 
+.card-header h1::after,
 .profile-card h2::after {
   content: "";
   position: absolute;
@@ -200,13 +268,21 @@ main {
   opacity: 0.6;
 }
 
+.card-header p {
+  margin: var(--space-4) 0 0;
+  font-size: var(--text-lg);
+  color: var(--fg);
+  opacity: 0.8;
+}
 
+/* Optimized card grid layout */
 .card-grid {
   display: flex;
   gap: var(--space-10);
   align-items: start;
 }
 
+/* Enhanced avatar with simplified hover effects */
 .avatar {
   margin: 0;
   text-align: center;
@@ -252,6 +328,7 @@ main {
   font-weight: 500;
 }
 
+/* Improved bio typography */
 .card-content .bio {
   margin-top: var(--space-4);
   font-size: var(--text-lg);
@@ -268,7 +345,9 @@ main {
   overflow: hidden;
 }
 
-.bio-toggle {
+/* Streamlined button with cleaner animations */
+.bio-toggle,
+button[type="submit"] {
   margin-top: var(--space-4);
   font: inherit;
   border: 2px solid var(--accent);
@@ -286,7 +365,8 @@ main {
   overflow: hidden;
 }
 
-.bio-toggle::before {
+.bio-toggle::before,
+button[type="submit"]::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -295,21 +375,31 @@ main {
   transition: transform 0.5s ease;
 }
 
-.bio-toggle:hover {
+.bio-toggle:hover,
+button[type="submit"]:hover {
   background: var(--accent-light);
   border-color: var(--accent-light);
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(255, 148, 114, 0.3);
 }
 
-.bio-toggle:hover::before {
+.bio-toggle:hover::before,
+button[type="submit"]:hover::before {
   transform: translateX(100%);
 }
 
-.bio-toggle:active {
+.bio-toggle:active,
+button[type="submit"]:active {
   transform: translateY(-1px);
 }
 
+button[type="submit"] {
+  width: 100%;
+  margin-top: var(--space-6);
+  padding: var(--space-5) var(--space-6);
+}
+
+/* Enhanced time display with cleaner design */
 .time-row {
   display: flex;
   align-items: center;
@@ -341,6 +431,7 @@ main {
   text-shadow: 0 0 10px rgba(255, 106, 0, 0.3);
 }
 
+/* Improved form inputs with consistent styling */
 .avatar-inputs {
   display: grid;
   gap: var(--space-5);
@@ -374,6 +465,84 @@ main {
   transform: translateY(-2px);
 }
 
+/* Form styles for contact page */
+.form-group {
+  margin-bottom: var(--space-6);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-3);
+  color: var(--fg);
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  border: 2px solid rgba(255, 106, 0, 0.2);
+  background: var(--card);
+  color: var(--fg);
+  font: inherit;
+  transition: all 0.3s ease;
+  font-size: var(--text-base);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 106, 0, 0.1);
+}
+
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.error-message {
+  display: block;
+  margin-top: var(--space-2);
+  color: var(--error);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  min-height: 1.5em;
+}
+
+.error-message:empty {
+  display: none;
+}
+
+.success-message {
+  text-align: center;
+  padding: var(--space-8);
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.1), rgba(22, 163, 74, 0.05));
+  border: 2px solid var(--success);
+  border-radius: var(--radius);
+  margin-top: var(--space-6);
+}
+
+.success-message h2 {
+  color: var(--success);
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-2xl);
+}
+
+.success-message p {
+  margin: 0;
+  font-size: var(--text-lg);
+  color: var(--fg);
+}
+
+/* Streamlined sections with better hover effects */
 section {
   margin-top: var(--space-8);
   padding: var(--space-6);
@@ -389,6 +558,7 @@ section:hover {
   border-color: var(--accent-light);
 }
 
+section h2,
 section h3 {
   margin: 0 0 var(--space-5);
   font-size: var(--text-xl);
@@ -399,6 +569,7 @@ section h3 {
   letter-spacing: -0.025em;
 }
 
+section h2::after,
 section h3::after {
   content: "";
   position: absolute;
@@ -410,6 +581,22 @@ section h3::after {
   border-radius: 2px;
 }
 
+section p {
+  margin: var(--space-4) 0;
+  line-height: 1.7;
+}
+
+section ul {
+  margin: var(--space-4) 0;
+  padding-left: var(--space-8);
+}
+
+section li {
+  margin: var(--space-3) 0;
+  line-height: 1.7;
+}
+
+/* Optimized list styles */
 .social-links,
 .bulleted {
   margin: 0;
@@ -479,13 +666,17 @@ section h3::after {
   font-size: var(--text-sm);
 }
 
+/* Consistent focus styles */
 a:focus-visible,
 button:focus-visible,
-input:focus-visible {
+input:focus-visible,
+textarea:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
   border-radius: 8px;
 }
+
+/* Optimized responsive breakpoints */
 
 @media (min-width: 768px) {
   .avatar img {
@@ -495,6 +686,9 @@ input:focus-visible {
 }
 
 @media (min-width: 1024px) {
+  .instructions {
+    display: none;
+  }
   .profile-card {
     padding: var(--space-16);
     display: grid;
@@ -550,7 +744,9 @@ input:focus-visible {
     align-items: center;
   }
 
-  .profile-card {
+  .profile-card,
+  .contact-card,
+  .about-card {
     padding: var(--space-8);
   }
 
@@ -559,6 +755,7 @@ input:focus-visible {
     height: 180px;
   }
 
+  .card-header h1,
   .profile-card h2 {
     font-size: var(--text-3xl);
   }
@@ -566,4 +763,129 @@ input:focus-visible {
   .card-content {
     text-align: center;
   }
+
+  nav a {
+    padding: var(--space-4) var(--space-5);
+    font-size: var(--text-xs);
+  }
 }
+
+/* Added new styles for redesigned about page layout */
+
+/* About page two-column layout */
+.about-container {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+/* Left profile card */
+.about-profile-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: var(--space-10);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  position: sticky;
+  top: calc(60px + var(--space-6));
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-profile-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-colored-lg);
+}
+
+.about-avatar {
+  margin: 0 auto var(--space-6);
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+
+.about-avatar::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: linear-gradient(135deg, rgba(255, 106, 0, 0.1), rgba(255, 148, 114, 0.1));
+  border-radius: var(--radius-full);
+  z-index: -1;
+}
+
+.about-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+  border: 6px solid var(--card);
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-avatar img:hover {
+  transform: scale(1.05);
+}
+
+.about-name {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  margin: 0 0 var(--space-3);
+  color: var(--fg);
+  letter-spacing: -0.025em;
+}
+
+.about-email {
+  font-size: var(--text-base);
+  color: var(--fg);
+  opacity: 0.7;
+  margin: 0 0 var(--space-8);
+}
+
+/* Right content cards */
+.about-content-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.about-info-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.about-info-card h2 {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  margin: 0 0 var(--space-5);
+  color: var(--fg);
+  letter-spacing: -0.025em;
+}
+
+.card-header-inline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.about-confidence{
+  width: 100%;
+}
+
+.card-header-inline h2 {
+  margin: 0;
+}
+

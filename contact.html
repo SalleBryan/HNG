@@ -1,0 +1,147 @@
+<!--
+data-testid attributes used:
+- test-main-nav
+- test-nav-profile
+- test-nav-contact
+- test-nav-about
+- test-instructions
+- test-contact-name
+- test-contact-email
+- test-contact-subject
+- test-contact-message
+- test-contact-submit
+- test-contact-error-name
+- test-contact-error-email
+- test-contact-error-subject
+- test-contact-error-message
+- test-contact-success
+-->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Bryan's Profile</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <nav data-testid="test-main-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html" data-testid="test-nav-profile">Profile Card</a></li>
+      <li><a href="contact.html" data-testid="test-nav-contact" aria-current="page">Contact</a></li>
+      <li><a href="about.html" data-testid="test-nav-about">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <p data-testid="test-instructions" class="instructions">
+      Use Tab to navigate, Enter/Space to activate controls. All fields are required.
+    </p>
+
+    <article class="contact-card">
+      <header class="card-header">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you. Fill out the form below to get in touch.</p>
+      </header>
+
+      <form id="contact-form" novalidate>
+        <div class="form-group">
+          <label for="contact-name">Full Name</label>
+          <input
+            type="text"
+            id="contact-name"
+            data-testid="test-contact-name"
+            required
+            aria-describedby="error-name"
+            aria-invalid="false"
+          />
+          <span
+            id="error-name"
+            class="error-message"
+            data-testid="test-contact-error-name"
+            role="alert"
+            aria-live="assertive"
+          ></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email">Email Address</label>
+          <input
+            type="email"
+            id="contact-email"
+            data-testid="test-contact-email"
+            required
+            aria-describedby="error-email"
+            aria-invalid="false"
+          />
+          <span
+            id="error-email"
+            class="error-message"
+            data-testid="test-contact-error-email"
+            role="alert"
+            aria-live="assertive"
+          ></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-subject">Subject</label>
+          <input
+            type="text"
+            id="contact-subject"
+            data-testid="test-contact-subject"
+            required
+            aria-describedby="error-subject"
+            aria-invalid="false"
+          />
+          <span
+            id="error-subject"
+            class="error-message"
+            data-testid="test-contact-error-subject"
+            role="alert"
+            aria-live="assertive"
+          ></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-message">Message</label>
+          <textarea
+            id="contact-message"
+            data-testid="test-contact-message"
+            required
+            minlength="10"
+            rows="6"
+            aria-describedby="error-message"
+            aria-invalid="false"
+          ></textarea>
+          <span
+            id="error-message"
+            class="error-message"
+            data-testid="test-contact-error-message"
+            role="alert"
+            aria-live="assertive"
+          ></span>
+        </div>
+
+        <button type="submit" data-testid="test-contact-submit">
+          Send Message
+        </button>
+      </form>
+
+      <div
+        id="success-message"
+        class="success-message"
+        data-testid="test-contact-success"
+        role="status"
+        aria-live="polite"
+        hidden
+      >
+        <h2>Thank you for your message!</h2>
+        <p>We'll get back to you as soon as possible.</p>
+      </div>
+    </article>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,20 +1,26 @@
 <!--
-data-testid attributes:
+Visible data-testid attributes used:
+- test-main-nav
+- test-nav-profile
+- test-nav-contact
+- test-nav-about
+- test-instructions
 - test-profile-card
 - test-user-name
 - test-user-bio
 - test-user-time
 - test-user-avatar
 - test-user-social-links
-- test-user-social-X
+- test-user-social-twitter
 - test-user-social-github
 - test-user-social-linkedin
 - test-user-hobbies
 - test-user-dislikes
-- test-avatar-pic-label
-- test-avatar-pic-input
+- test-avatar-url-label
+- test-avatar-url-input
+- test-avatar-file-label
+- test-avatar-file-input
 - test-bio-toggle
-- test-instructions
 - test-section-social
 - test-section-hobbies
 - test-section-dislikes
@@ -31,7 +37,6 @@ data-testid attributes:
 - test-hobby-item-3
 - test-dislike-item-1
 - test-dislike-item-2
-- test-dislike-item-3
 -->
 
 <!DOCTYPE html>
@@ -43,6 +48,15 @@ data-testid attributes:
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+  <!-- Added navigation bar for multi-page app -->
+  <nav data-testid="test-main-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html" data-testid="test-nav-profile" aria-current="page">Profile Card</a></li>
+      <li><a href="contact.html" data-testid="test-nav-contact">Contact Us</a></li>
+      <li><a href="about.html" data-testid="test-nav-about">About</a></li>
+    </ul>
+  </nav>
+
   <main>
     <p data-testid="test-instructions" class="instructions">
       Use Tab to navigate, Enter/Space to activate controls.
