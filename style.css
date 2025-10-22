@@ -685,10 +685,13 @@ textarea:focus-visible {
   }
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 1023px) {
   .instructions {
     display: none;
   }
+}
+
+@media (min-width: 1024px) {
   .profile-card {
     padding: var(--space-16);
     display: grid;
