@@ -8,6 +8,7 @@ Navigation Section:
 
 Main Content Section:
 
+- test-about-page
 - test-instructions - Keyboard navigation instructions paragraph
 - test-avatar-figure - Profile avatar figure element
 - test-user-name - User name heading (Bryan)
@@ -41,7 +42,7 @@ Content Cards:
     </nav>
 
     <!-- Main content area -->
-    <main id="main-content" aria-label="About page content">
+    <main id="main-content" aria-label="About page content" data-testid="test-about-page">
         <p data-testid="test-instructions" class="instructions">
             Use Tab to navigate through sections.
         </p>
@@ -60,7 +61,7 @@ Content Cards:
                     </div>
                     <div class="about-content-cards">
                         <!-- Bio section -->
-                        <div class="about-info-card" data-testid="test-about-bio" aria-labelledby="bio-heading">
+                        <section class="about-info-card" data-testid="test-about-bio" aria-labelledby="bio-heading">
                             <h2 id="bio-heading">About Me</h2>
                             <p>
                                 I'm Salle Bryan, a frontend developer with a passion for creating accessible and
@@ -79,10 +80,10 @@ Content Cards:
                                 continuously
                                 improve my craft.
                             </p>
-                        </div>
+                        </section>
 
                         <!-- Goals section -->
-                        <div class="about-info-card wide" data-testid="test-about-goals"
+                        <section class="about-info-card wide" data-testid="test-about-goals"
                             aria-labelledby="goals-heading">
                             <h2 id="goals-heading">Goals in This Program</h2>
                             <ul class="goals-list bulleted">
@@ -92,7 +93,7 @@ Content Cards:
                                 <li>Learn to balance aesthetic design with functional accessibility</li>
                                 <li>Contribute to open-source accessibility tools and documentation</li>
                             </ul>
-                        </div>
+                        </section>
                     </div>
                 </div>
             </section>
