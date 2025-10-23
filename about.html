@@ -1,152 +1,127 @@
-<!-- data-testid attributes used:
-Navigation Section:
-
-- test-main-nav - Main navigation container
-- test-nav-profile - Profile Card link
-- test-nav-contact - Contact link
-- test-nav-about - About link (current page)
-
-Main Content Section:
-
+<!--
+Visible data-testid attributes used:
+- test-main-nav
+- test-nav-profile
+- test-nav-contact
+- test-nav-about
+- test-instructions
 - test-about-page
-- test-instructions - Keyboard navigation instructions paragraph
-- test-avatar-figure - Profile avatar figure element
-- test-user-name - User name heading (Bryan)
-
-Content Cards:
-
-- test-about-bio - About Me biography card
-- test-about-goals - Goals in This Program card
-- test-about-confidence - Areas of Low Confidence card
-- test-about-future-note - Note to Future Self card
-- test-about-extra - Extra Thoughts card 
+- test-about-bio
+- test-about-goals
+- test-about-confidence
+- test-about-future-note
+- test-about-extra
 -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - Bryan's Profile</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
     <nav data-testid="test-main-nav" aria-label="Main navigation">
         <ul>
             <li><a href="index.html" data-testid="test-nav-profile">Profile Card</a></li>
-            <li><a href="contact.html" data-testid="test-nav-contact">Contact Us</a></li>
+            <li><a href="contact.html" data-testid="test-nav-contact">Contact</a></li>
             <li><a href="about.html" data-testid="test-nav-about" aria-current="page">About</a></li>
         </ul>
     </nav>
 
-    <!-- Main content area -->
-    <main id="main-content" aria-label="About page content" data-testid="test-about-page">
+    <main data-testid="test-about-page">
         <p data-testid="test-instructions" class="instructions">
             Use Tab to navigate through sections.
         </p>
 
-        <!-- Profile header section -->
-        <article aria-labelledby="profile-heading">
-            <section>
-                <div class="card-grid">
-                    <div class="about-profile-card">
-                        <figure class="about-avatar" data-testid="test-avatar-figure">
-                            <img src="https://media.licdn.com/dms/image/v2/D4E03AQF9WOM58yL8UA/profile-displayphoto-scale_400_400/B4EZnT33z_HEAg-/0/1760196265335?e=1762387200&v=beta&t=Ssn2c7mPTgU3Rp0x7aiz1rvDerw4bj1SETsrq6zTCz4"
-                                alt="Bryan's profile picture" />
-                        </figure>
+        <article class="about-card">
+            <header class="card-header">
+                <h1>About Me</h1>
+                <p>A reflective look at my journey, goals, and aspirations.</p>
+            </header>
 
-                        <h1 id="profile-heading" class="about-name" data-testid="test-user-name">Salle Bryan</h1>
-                    </div>
-                    <div class="about-content-cards">
-                        <!-- Bio section -->
-                        <div class="about-info-card" data-testid="test-about-bio" aria-labelledby="bio-heading">
-                            <h2 id="bio-heading">About Me</h2>
-                            <p>
-                                I'm Salle Bryan, a frontend developer with a passion for creating accessible and
-                                delightful user
-                                experiences.
-                                My journey into web development started with a curiosity about how websites work, which
-                                quickly evolved
-                                into a deep appreciation for languages like HTML, CSS, JS and libraries like React and
-                                Bootstrap.
-                            </p>
-                            <p>
-                                Over the years, I've learned that the best interfaces are those that work for everyone,
-                                regardless of
-                                their abilities or the devices they use. This philosophy drives my work and inspires me
-                                to
-                                continuously
-                                improve my craft.
-                            </p>
-                        </div>
+            <section data-testid="test-about-bio">
+                <h2>Bio</h2>
+                <p>
+                    I'm Salle Bryan, a frontend developer with a passion for creating accessible and
+                    delightful user
+                    experiences.
+                    My journey into web development started with a curiosity about how websites work, which
+                    quickly evolved
+                    into a deep appreciation for languages like HTML, CSS, JS and libraries like React and
+                    Bootstrap.
+                </p>
+                <p>
+                    Over the years, I've learned that the best interfaces are those that work for everyone,
+                    regardless of
+                    their abilities or the devices they use. This philosophy drives my work and inspires me
+                    to
+                    continuously
+                    improve my craft.
+                </p>
 
-                        <!-- Goals section -->
-                        <div class="about-info-card wide" data-testid="test-about-goals"
-                            aria-labelledby="goals-heading">
-                            <h2 id="goals-heading">Goals in This Program</h2>
-                            <ul class="goals-list bulleted">
-                                <li>Master advanced frontend techniques</li>
-                                <li>Deepen understanding of progressive enhancement and resilient web design</li>
-                                <li>Build a portfolio of projects that demonstrate best practices</li>
-                                <li>Learn to balance aesthetic design with functional accessibility</li>
-                                <li>Contribute to open-source accessibility tools and documentation</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </section>
 
-            <!-- Low confidence areas card -->
-            <section>
-                <div class="about-info-card" data-testid="test-about-confidence" aria-labelledby="confidence-heading">
-                    <h2 id="confidence-heading">Areas of Low Confidence</h2>
-                    <ul class="confidence-list bulleted">
-                        <li>Accessibility</li>
-                        <li>Naming Things</li>
-                        <li>Browser APIs and Compatibility</li>
-                        <li>Advanced CSS Grid layouts with dynamic content</li>
-                        <li>Performance optimization for large-scale applications</li>
-                    </ul>
-                </div>
+            <section data-testid="test-about-goals">
+                <h2>Goals in This Program</h2>
+                <ul class="goals-list bulleted">
+                    <li>Master advanced frontend techniques</li>
+                    <li>Deepen understanding of progressive enhancement and resilient web design</li>
+                    <li>Build a portfolio of projects that demonstrate best practices</li>
+                    <li>Learn to balance aesthetic design with functional accessibility</li>
+                    <li>Contribute to open-source accessibility tools and documentation</li>
+                </ul>
+
             </section>
 
-            <!-- Future note card -->
-            <section>
-                <div class="about-info-card" data-testid="test-about-future-note" aria-labelledby="future-note-heading">
-                    <h2 id="future-note-heading">Note to Future Self</h2>
-                    <p>
-                        Remember that every line of code you write has the potential to make someone's day better—or
-                        worse.
-                        Choose accessibility, choose clarity, and choose empathy. The web is for everyone, and your work
-                        should reflect that. Keep learning, stay curious, and never stop advocating for users who might
-                        not
-                        have a voice in the room. You've got this!
-                    </p>
-                </div>
+            <section data-testid="test-about-confidence">
+                <h2>Areas of Low Confidence</h2>
+                <ul class="confidence-list bulleted">
+                    <li>Accessibility</li>
+                    <li>Naming Things</li>
+                    <li>Browser APIs and Compatibility</li>
+                    <li>Advanced CSS Grid layouts with dynamic content</li>
+                    <li>Performance optimization for large-scale applications</li>
+                </ul>
+
             </section>
 
-            <!-- Extra thoughts card -->
-            <section>
-                <div class="about-info-card" data-testid="test-about-extra" aria-labelledby="extra-thoughts-heading">
-                    <h2 id="extra-thoughts-heading">Extra Thoughts</h2>
-                    <p>
-                        Accessibility isn't just an extra feature, it's an essential part of good design.
-                        As I keep learning and growing in web development, I'm dedicated to promoting inclusive
-                        practices and making sure my work helps create a better digital world.
-                        Everyone deserves an easy and enjoyable experience, and I aim to make that happen through
-                        careful design and development.
-                    </p>
-                    <p>
-                        I also think it's important to take breaks and recharge. Whether it's gaming with friends,
-                        watching movies, or just stepping away from the screen, these moments of rest
-                        make me a better developer and a happier person.
-                    </p>
-                </div>
+            <section data-testid="test-about-future-note">
+                <h2>Note to Future Self</h2>
+                <p>
+                    Remember that every line of code you write has the potential to make someone's day better—or
+                    worse.
+                    Choose accessibility, choose clarity, and choose empathy. The web is for everyone, and your work
+                    should reflect that. Keep learning, stay curious, and never stop advocating for users who might
+                    not
+                    have a voice in the room. You've got this!
+                </p>
+
+            </section>
+
+            <section data-testid="test-about-extra">
+                <h2>Extra Thoughts</h2>
+                <p>
+                    Accessibility isn't just an extra feature, it's an essential part of good design.
+                    As I keep learning and growing in web development, I'm dedicated to promoting inclusive
+                    practices and making sure my work helps create a better digital world.
+                    Everyone deserves an easy and enjoyable experience, and I aim to make that happen through
+                    careful design and development.
+                </p>
+                <p>
+                    I also think it's important to take breaks and recharge. Whether it's gaming with friends,
+                    watching movies, or just stepping away from the screen, these moments of rest
+                    make me a better developer and a happier person.
+                </p>
+
             </section>
         </article>
     </main>
+
+    <script src="script.js" defer></script>
 </body>
 
 </html>
